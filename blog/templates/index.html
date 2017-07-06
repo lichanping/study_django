@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
-    <h1>{{article.title}}</h1>
-    <h3>{{article.content}}</h3>
 </head>
 <body>
+<h1>
+    <a href=" {% url 'blog:edit_page' 0 %} ">new articles</a>
+</h1>
+{% for article in articles %}
+    <a href="{% url 'blog:article_page' article.id %}">{{article.title}}</a>
+    <br>
+{% endfor %}
 
 </body>
 </html>
